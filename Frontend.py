@@ -1,7 +1,7 @@
-from tkinter import *
+import tkinter
 import backend as Backend
 #Creates the Tkinter application
-root = Tk()
+root = tkinter.Tk()
 root.geometry("700x700")
 root.title("Password Manager")
 root.configure(bg="#19191a")
@@ -28,15 +28,15 @@ def main(debug):
             newMasterPasswordEntry.delete(0, END)
         
         #Creates the Screen Text
-        mainText = Label(root, text="Change your masterpassword below!", bg="#19191a", fg="White")
-        outputText = Label(root, text=None, bg="#19191a", fg="White")
+        mainText = tkinter.Label(root, text="Change your masterpassword below!", bg="#19191a", fg="White")
+        outputText = tkinter.Label(root, text=None, bg="#19191a", fg="White")
 
         #Create Entry
-        newMasterPasswordEntry = Entry(root, width=25, bg="grey", fg="#19191a")
+        newMasterPasswordEntry = tkinter.Entry(root, width=25, bg="grey", fg="#19191a")
 
         #Creates Buttons
-        changeMasterPasswordButton = Button(root, text="Change your Master Password", bg="grey", command=changeMasterPasswordCommand)
-        backToDebugScreen = Button(root, text="Back", bg="grey", command=backToDebugScreenCommand)
+        changeMasterPasswordButton = tkinter.Button(root, text="Change your Master Password", bg="grey", command=changeMasterPasswordCommand)
+        backToDebugScreen = tkinter.Button(root, text="Back", bg="grey", command=backToDebugScreenCommand)
 
         #Places everything on the screen
         mainText.place(relx=0.5, rely=0.0, anchor=N)
@@ -80,14 +80,14 @@ def main(debug):
             changeMasterPasswordScreen()
         
         #Creates the debug screens Text
-        mainText = Label(root, text="Debug options", bg="#19191a", fg="White")
-        outputText = Label(root, text=None, bg="#19191a", fg="White")
+        mainText = tkinter.Label(root, text="Debug options", bg="#19191a", fg="White")
+        outputText = tkinter.Label(root, text=None, bg="#19191a", fg="White")
 
         #Creates the debug screens Buttons 
-        encryptButton = Button(root, text="encrypt data sheet", bg="grey", command=encryptDataSheet)
-        decryptButton = Button(root, text="decrypt data sheet", bg="grey", command=decryptDataSheet)
-        changeMasterPasswordButton = Button(root, text="Change Master Password", bg="grey", command=changeMasterPasswordCommand)
-        backToSecondScreenButton = Button(root, text="Back", bg="grey", command=backToSecondScreen)
+        encryptButton = tkinter.Button(root, text="encrypt data sheet", bg="grey", command=encryptDataSheet)
+        decryptButton = tkinter.Button(root, text="decrypt data sheet", bg="grey", command=decryptDataSheet)
+        changeMasterPasswordButton = tkinter.Button(root, text="Change Master Password", bg="grey", command=changeMasterPasswordCommand)
+        backToSecondScreenButton = tkinter.Button(root, text="Back", bg="grey", command=backToSecondScreen)
 
         #Places the buttons/text on the screen at the desired places
         mainText.place(relx=0.5, rely=0.0, anchor=N)
@@ -137,27 +137,27 @@ def main(debug):
                 outputText.configure(text="Your entry was successfully added to the datasheet!")
         
         #Create the title
-        mainText = Label(root, text="Add a new addition to your dataset by using the text boxes below! (It can't contain spaces)", background="#19191a", foreground="White")
+        mainText = tkinter.Label(root, text="Add a new addition to your dataset by using the text boxes below! (It can't contain spaces)", background="#19191a", foreground="White")
         mainText.place(relx=0.5, rely=0, anchor=N)
 
         #Create the output
-        outputText = Label(root, text=None, background="#19191a", foreground="White")
+        outputText = tkinter.Label(root, text=None, background="#19191a", foreground="White")
 
         #Create the text that is about the Entries
-        websiteText = Label(root, text="Enter Website:", bg="#19191a", fg="White")
-        emailText = Label(root, text="Enter Email:", bg="#19191a", fg="White")
-        passwordText = Label(root, text="Enter Password:", bg="#19191a", fg="White")
+        websiteText = tkinter.Label(root, text="Enter Website:", bg="#19191a", fg="White")
+        emailText = tkinter.Label(root, text="Enter Email:", bg="#19191a", fg="White")
+        passwordText = tkinter.Label(root, text="Enter Password:", bg="#19191a", fg="White")
 
         #Create the text Entries 
-        websiteEntry = Entry(root, width=25, bg="grey", fg="#19191a")
-        emailEntry = Entry(root, width=25, bg="grey", fg="#19191a")
-        passwordEntry = Entry(root, width=25, bg="grey", fg="#19191a")
+        websiteEntry = tkinter.Entry(root, width=25, bg="grey", fg="#19191a")
+        emailEntry = tkinter.Entry(root, width=25, bg="grey", fg="#19191a")
+        passwordEntry = tkinter.Entry(root, width=25, bg="grey", fg="#19191a")
 
         #Create the add to Csv Button
-        addToCsvButton = Button(root, text="Add to Password Sheet", bg="grey", command=addToCsvSheet)
+        addToCsvButton = tkinter.Button(root, text="Add to Password Sheet", bg="grey", command=addToCsvSheet)
         
         #Create the backButton
-        backToSecondScreenButton = Button(root, text="Back", bg="grey", command=goBackToSecondScreen)
+        backToSecondScreenButton = tkinter.Button(root, text="Back", bg="grey", command=goBackToSecondScreen)
 
         #Place everything on the screen at the proper cordinates by anchoring it at the Center.
         websiteEntry.place(relx=0.5, rely=0.5, anchor=CENTER)
@@ -185,8 +185,8 @@ def main(debug):
             outputText.place(relx=0.5, rely=0.5, anchor=CENTER)
         
         #Creates the text Labels
-        mainText = Label(root, text="Retrieve a password by using the dropdown Below", background="#19191a", foreground="White")
-        outputText = Label(root, text=None)
+        mainText = tkinter.Label(root, text="Retrieve a password by using the dropdown Below", background="#19191a", foreground="White")
+        outputText = tkinter.Label(root, text=None)
 
         #Stores every website that in in the data sheet in a variable called websites
         websites = Backend.getWebsites()
@@ -195,10 +195,10 @@ def main(debug):
         clicked = StringVar()
 
         #Creates the dropdown menu and puts all of the websites as the options. When the dropdown changes it calls dropdownChange()
-        websitesDropDown = OptionMenu(root, clicked, *(websites), command=dropdownChange)
+        websitesDropDown = tkinter.OptionMenu(root, clicked, *(websites), command=dropdownChange)
 
         #Creates the back button that on click deletes all screen elements and runs the second screen function
-        backButton = Button(root, text="Back", bg="grey", command=choicesScreenHomeButton)
+        backButton = tkinter.Button(root, text="Back", bg="grey", command=choicesScreenHomeButton)
 
         #Configures the drop down by making it the desired color
         websitesDropDown.configure(background="grey", foreground="#19191a", activebackground="grey")
@@ -252,13 +252,13 @@ def main(debug):
             authenticationScreen()
         
         #Creates the text Labels for the screen 
-        mainText = Label(root, text="You have been successfully logged in! Click one of the options to be redirected!")
+        mainText = tkinter.Label(root, text="You have been successfully logged in! Click one of the options to be redirected!")
 
         #Creates the Buttons for the screen
-        retrieveButton = Button(root, text="Retrieve Password", command=retrieveButton)
-        addANewPasswordButton = Button(root, text="Add a New Password", command=addANewPasswordButton)
-        debugButton = Button(root, text="Debug", command=debugButton)
-        backToFirstScreenButton = Button(root, text="Log Out", background="grey", command=backToFirstScreenButton)
+        retrieveButton = tkinter.Button(root, text="Retrieve Password", command=retrieveButton)
+        addANewPasswordButton = tkinter.Button(root, text="Add a New Password", command=addANewPasswordButton)
+        debugButton = tkinter.Button(root, text="Debug", command=debugButton)
+        backToFirstScreenButton = tkinter.Button(root, text="Log Out", background="grey", command=backToFirstScreenButton)
         
         #Configures the screen elements to get the desired colors
         mainText.configure(background="#19191a", foreground="White")
@@ -277,11 +277,11 @@ def main(debug):
     def authenticationScreen():
 
         #Creates the Labels for the screen
-        mainText = Label(root, text="Welcome to your password manager. Enter your master password here to access your passwords.")
-        errorText = Label(root, text=None)
+        mainText = tkinter.Label(root, text="Welcome to your password manager. Enter your master password here to access your passwords.")
+        errorText = tkinter.Label(root, text=None)
 
         #Creates the text Master Password entry for the screen
-        masterPasswordEntry = Entry(root, width=50, bg="grey", fg="black")
+        masterPasswordEntry = tkinter.Entry(root, width=50, bg="grey", fg="black")
 
         #Configures the Master Password entry by changing the colors
         mainText.configure(background="#19191a", foreground="White")
@@ -306,7 +306,7 @@ def main(debug):
                 errorText.place(relx=0.5, rely=0.57, anchor=CENTER)
 
         #Creates a Button for that calls authenticateButton() on click
-        authenticateButton = Button(root, text="Login",  command=authenticateButton)
+        authenticateButton = tkinter.Button(root, text="Login",  command=authenticateButton)
 
         #Configures the button with a grey background
         authenticateButton.configure(background="grey")
